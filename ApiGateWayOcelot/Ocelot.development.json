@@ -1,0 +1,18 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/validate",
+      "DownstreamScheme": "https",
+      "DownStreamHttpMethod": [ "POST" ],
+      "RouteIsCaseSensitive": false,
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7119
+        }
+      ],
+      "UpstreamPathTemplate": "/GetKey",
+      "UpstreamHttpMethod": [ "POST" ]
+    }
+  ]
+}

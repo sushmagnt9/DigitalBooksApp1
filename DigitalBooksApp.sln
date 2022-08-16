@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalBooksApp", "DigitalBooksApp\DigitalBooksApp.csproj", "{07FED46D-8CDF-4B59-B07D-082CA34EAEDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateWayOcelot", "ApiGateWayOcelot\ApiGateWayOcelot.csproj", "{788EFC38-D2FE-4AB8-845A-5B4F7A8EDAA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TokenAuthentication", "TokenAuthentication\TokenAuthentication.csproj", "{F073A452-AC6E-448B-BEC5-D5ADB7BA38B2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07FED46D-8CDF-4B59-B07D-082CA34EAEDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07FED46D-8CDF-4B59-B07D-082CA34EAEDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07FED46D-8CDF-4B59-B07D-082CA34EAEDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07FED46D-8CDF-4B59-B07D-082CA34EAEDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{788EFC38-D2FE-4AB8-845A-5B4F7A8EDAA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{788EFC38-D2FE-4AB8-845A-5B4F7A8EDAA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{788EFC38-D2FE-4AB8-845A-5B4F7A8EDAA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{788EFC38-D2FE-4AB8-845A-5B4F7A8EDAA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F073A452-AC6E-448B-BEC5-D5ADB7BA38B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F073A452-AC6E-448B-BEC5-D5ADB7BA38B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F073A452-AC6E-448B-BEC5-D5ADB7BA38B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F073A452-AC6E-448B-BEC5-D5ADB7BA38B2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {30C8DE2C-379E-4DDB-887E-EEC0B7F04F0B}
+	EndGlobalSection
+EndGlobal

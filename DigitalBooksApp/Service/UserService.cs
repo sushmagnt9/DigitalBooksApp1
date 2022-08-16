@@ -13,6 +13,7 @@ namespace DigitalBooksApp.Service
         {
             return _digitalbookContext.Users.ToList();
         }
+
         public string CreateUser(User user)
         {
             try

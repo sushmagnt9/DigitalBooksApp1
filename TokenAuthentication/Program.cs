@@ -6,6 +6,7 @@ using Microsoft.IdentityModel;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using DigitalBooksApp.DatabaseEntity;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,8 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();//
-builder.Services.AddSingleton<ITokenService>(new TokenService());
+builder.Services.AddSwaggerGen();
 builder.Services.AddAuthentication("Bearer").AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new()
@@ -23,11 +23,14 @@ builder.Services.AddAuthentication("Bearer").AddJwtBearer(options =>
         ValidateIssuer = true,
         ValidateAudience = true,
         ValidateIssuerSigningKey = true,
-        ValidAudience = builder.Configuration["Authentication:Audience"],
-        ValidIssuer = builder.Configuration["Authentication:Issuer"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["Authentication:SecretForKey"]))
+        ValidAudience = builder.Configuration["Jwt:Aud1"],
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]))
     };
 });
+builder.Services.AddDbContext<DigitalBookContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("connection")));
+builder.Services.AddTransient<ITokenService, TokenService>();
+
 var app = builder.Build();
 
 
@@ -37,31 +40,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-//app.MapPost("/validate", [AllowAnonymous](UserValidationRequestModel request, HttpContext http, ITokenService tokenService) =>
-//{
-//    if (request is UserValidationRequestModel {UserName },)
-//    {
-//        var token = tokenService.BuildToken(builder.Configuration["Authentication:Key"],
-//                                            builder.Configuration["Authentication:Issuer"],
-//                                            new[]
-//                                            {
-//                                                builder.Configuration["Authentication:Aud1"],
-//                                                builder.Configuration["Authentication:Aud2"]
-//                                            },
-//                                            request.UserName);
-//        return new
-//        {
-//            Token = token,
-//            IsAuthenticated = true,
-//        };
-//    }
-//    return new
-//    {
-//        Token = string.Empty,
-//        IsAuthenticated = false,
-//    };
-//})
-//    .WithName("validate");
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();

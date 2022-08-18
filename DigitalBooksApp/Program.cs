@@ -22,9 +22,9 @@ builder.Services.AddAuthentication("Bearer").AddJwtBearer(options =>
         ValidateIssuer = true,
         ValidateAudience = true,
         ValidateIssuerSigningKey = true,
-        ValidAudience = builder.Configuration["Authentication:Audience"],
-        ValidIssuer = builder.Configuration["Authentication:Issuer"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["Authentication:Key"]))
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]))
     };
 });
 var app = builder.Build();

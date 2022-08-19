@@ -14,6 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IBookService, BookService>();
 builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IAuthorService, AuthorService>();
 builder.Services.AddDbContext<DigitalBookContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("connection")));
 builder.Services.AddAuthentication("Bearer").AddJwtBearer(options =>
 {
@@ -27,6 +28,13 @@ builder.Services.AddAuthentication("Bearer").AddJwtBearer(options =>
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]))
     };
 });
+builder.Services.AddCors((setup) =>
+{
+    setup.AddPolicy("default", (options) =>
+    {
+        options.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
+    });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -35,7 +43,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors("Default");
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();

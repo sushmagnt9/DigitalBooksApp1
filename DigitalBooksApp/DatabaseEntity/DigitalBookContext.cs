@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace DigitalBooksApp.DatabaseEntity
 {
-    public partial class DigitalBookContext : DbContext
+    public partial class DigitalbookContext : DbContext
     {
-        public DigitalBookContext()
+        public DigitalbookContext()
         {
         }
 
-        public DigitalBookContext(DbContextOptions<DigitalBookContext> options)
+        public DigitalbookContext(DbContextOptions<DigitalbookContext> options)
             : base(options)
         {
         }
@@ -20,6 +20,14 @@ namespace DigitalBooksApp.DatabaseEntity
         public virtual DbSet<Payment> Payments { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Data Source=CTSDOTNET647;Initial Catalog=Digitalbook;Persist Security Info=True;User ID=sa;Password=pass@word1;");
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -76,7 +84,7 @@ namespace DigitalBooksApp.DatabaseEntity
                     .WithMany(p => p.Books)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Book__userId__44FF419A");
+                    .HasConstraintName("FK__Book__userId__59063A47");
             });
 
             modelBuilder.Entity<Payment>(entity =>
@@ -95,8 +103,6 @@ namespace DigitalBooksApp.DatabaseEntity
             modelBuilder.Entity<User>(entity =>
             {
                 entity.ToTable("User");
-
-                entity.Property(e => e.UserId).ValueGeneratedNever();
 
                 entity.Property(e => e.Password)
                     .HasMaxLength(100)

@@ -4,8 +4,8 @@ namespace DigitalBooksApp.Service
 {
     public class BookService : IBookService
     {
-        private readonly DigitalBookContext _digitalbookContext;
-        public BookService(DigitalBookContext digitalBookContext)
+        private readonly DigitalbookContext _digitalbookContext;
+        public BookService(DigitalbookContext digitalBookContext)
         {
             _digitalbookContext = digitalBookContext;
         }

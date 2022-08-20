@@ -4,8 +4,8 @@ namespace DigitalBooksApp.Service
 {
     public class CreateAccountService
     {
-        public DigitalBookContext todoContext { get; set; }
-        public CreateAccountService(DigitalBookContext digitalBookContext)
+        public DigitalbookContext todoContext { get; set; }
+        public CreateAccountService(DigitalbookContext digitalBookContext)
         {
             todoContext = digitalBookContext;
         }

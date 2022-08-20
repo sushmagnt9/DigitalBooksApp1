@@ -11,8 +11,8 @@ namespace TokenAuthentication.Service
 {
     public class TokenService : ITokenService
     {
-        private readonly DigitalBookContext _digitalBookContext;
-        public TokenService(DigitalBookContext digitalBookContext)
+        private readonly DigitalbookContext _digitalBookContext;
+        public TokenService(DigitalbookContext digitalBookContext)
         {
             _digitalBookContext = digitalBookContext;
         }

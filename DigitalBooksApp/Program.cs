@@ -15,7 +15,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IBookService, BookService>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IAuthorService, AuthorService>();
-builder.Services.AddDbContext<DigitalBookContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("connection")));
+builder.Services.AddDbContext<DigitalbookContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("connection")));
 builder.Services.AddAuthentication("Bearer").AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new()
@@ -43,7 +43,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseCors("Default");
+app.UseCors("default");
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();

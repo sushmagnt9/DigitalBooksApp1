@@ -6,7 +6,7 @@ using System.Security.Claims;
 
 namespace DigitalBooksApp.Controllers
 {
-    [Authorize]
+    
     [ApiController]
     [Route("[controller]")]
     public class UserController : Controller

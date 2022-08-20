@@ -4,8 +4,8 @@ namespace DigitalBooksApp.Service
 {
     public class AuthorService : IAuthorService
     {
-        public DigitalBookContext _digitalBookContext { get; set; }
-        public AuthorService(DigitalBookContext digitalBookContext)
+        public DigitalbookContext _digitalBookContext { get; set; }
+        public AuthorService(DigitalbookContext digitalBookContext)
         {
             _digitalBookContext = digitalBookContext;
         }

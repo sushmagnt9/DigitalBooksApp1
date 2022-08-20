@@ -28,7 +28,7 @@ builder.Services.AddAuthentication("Bearer").AddJwtBearer(options =>
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]))
     };
 });
-builder.Services.AddDbContext<DigitalBookContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("connection")));
+builder.Services.AddDbContext<DigitalbookContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("connection")));
 builder.Services.AddTransient<ITokenService, TokenService>();
 builder.Services.AddCors((setup) =>
 {

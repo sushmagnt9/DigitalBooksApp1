@@ -4,7 +4,7 @@ namespace DigitalBooksApp.Service
 {
     public interface IAuthorService
     {
-        DigitalBookContext _digitalBookContext { get; set; }
+        DigitalbookContext _digitalBookContext { get; set; }
 
         string CreateAuthor(User author);
     }

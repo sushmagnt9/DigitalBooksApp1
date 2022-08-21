@@ -59,7 +59,10 @@ namespace DigitalBooksApp.DatabaseEntity
                     .HasColumnType("datetime")
                     .HasColumnName("createdDate");
 
-                entity.Property(e => e.Logo).HasColumnName("logo");
+                entity.Property(e => e.Logo)
+                    .HasMaxLength(500)
+                    .IsUnicode(false)
+                    .HasColumnName("logo");
 
                 entity.Property(e => e.ModifiedDate)
                     .HasColumnType("datetime")
@@ -84,7 +87,7 @@ namespace DigitalBooksApp.DatabaseEntity
                     .WithMany(p => p.Books)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Book__userId__59063A47");
+                    .HasConstraintName("FK__Book__userId__66603565");
             });
 
             modelBuilder.Entity<Payment>(entity =>

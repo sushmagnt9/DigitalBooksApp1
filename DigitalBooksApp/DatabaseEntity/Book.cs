@@ -6,7 +6,7 @@ namespace DigitalBooksApp.DatabaseEntity
     public partial class Book
     {
         public long BookId { get; set; }
-        public byte[]? Logo { get; set; }
+        public string? Logo { get; set; }
         public string BookTitle { get; set; } = null!;
         public string? Category { get; set; }
         public decimal? Price { get; set; }

@@ -18,7 +18,7 @@ namespace DigitalBooksApp.Controllers
         {
             return Ok(_ibookService.GetAllBooks());
         }
-        [HttpPost]
+        [HttpPost("CreateBook")]
         public ActionResult<string> CreateBook([FromBody] Book book)
         {
             string result = _ibookService.CreateBook(book);

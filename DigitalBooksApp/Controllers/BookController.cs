@@ -1,4 +1,5 @@
 ﻿using DigitalBooksApp.DatabaseEntity;
+using DigitalBooksApp.NewFolder;
 using DigitalBooksApp.Service;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,7 +20,7 @@ namespace DigitalBooksApp.Controllers
             return Ok(_ibookService.GetAllBooks());
         }
         [HttpPost("CreateBook")]
-        public ActionResult<string> CreateBook([FromBody] Book book)
+        public ActionResult<string> CreateBook([FromBody] BookDetails book)
         {
             string result = _ibookService.CreateBook(book);
             return Ok(result);

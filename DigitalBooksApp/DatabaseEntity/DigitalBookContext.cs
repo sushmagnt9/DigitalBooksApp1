@@ -111,6 +111,10 @@ namespace DigitalBooksApp.DatabaseEntity
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
+                entity.Property(e => e.UserEmail)
+                    .HasMaxLength(500)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.UserName)
                     .HasMaxLength(500)
                     .IsUnicode(false);

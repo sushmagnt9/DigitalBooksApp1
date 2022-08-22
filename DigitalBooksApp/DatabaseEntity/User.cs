@@ -14,6 +14,7 @@ namespace DigitalBooksApp.DatabaseEntity
         public string UserName { get; set; } = null!;
         public string Password { get; set; } = null!;
         public string UserType { get; set; } = null!;
+        public string? UserEmail { get; set; }
 
         public virtual ICollection<Book> Books { get; set; }
     }

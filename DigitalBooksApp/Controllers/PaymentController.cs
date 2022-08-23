@@ -18,10 +18,10 @@ namespace DigitalBooksApp.Controllers
             {
                 return Ok(_ipaymentService.GetAllPaymentDetails());
             }
-            [HttpPost("CreateBook")]
+            [HttpPost("CreatePayment")]
             public ActionResult<string> CreatePayment([FromBody] Payment payment)
             {
-                string result = _ipaymentService.CreateBook(payment);
+                string result = _ipaymentService.CreatePayment(payment);
                 return Ok(result);
             }
         }

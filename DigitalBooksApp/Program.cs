@@ -15,6 +15,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IBookService, BookService>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IAuthorService, AuthorService>();
+builder.Services.AddTransient<IPaymentService , PaymentService>();
 builder.Services.AddDbContext<DigitalbookContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("connection")));
 builder.Services.AddAuthentication("Bearer").AddJwtBearer(options =>
 {

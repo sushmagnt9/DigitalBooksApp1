@@ -5,6 +5,11 @@ namespace DigitalBooksApp.DatabaseEntity
 {
     public partial class Book
     {
+        public Book()
+        {
+            Payments = new HashSet<Payment>();
+        }
+
         public long BookId { get; set; }
         public string? Logo { get; set; }
         public string BookTitle { get; set; } = null!;
@@ -19,5 +24,6 @@ namespace DigitalBooksApp.DatabaseEntity
         public DateTime? ModifiedDate { get; set; }
 
         public virtual User User { get; set; } = null!;
+        public virtual ICollection<Payment> Payments { get; set; }
     }
 }

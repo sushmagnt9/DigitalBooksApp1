@@ -18,7 +18,9 @@ namespace DigitalBooksApp.Service
             try
             {
                 Payment paymentDetails = new Payment();
-                paymentDetails.Email = payment.Email;
+                paymentDetails.BuyerEmail = payment.BuyerEmail;
+                paymentDetails.BuyerName = payment.BuyerName;
+                paymentDetails.BookId = payment.BookId;
                 paymentDetails.PaymentDate = payment.PaymentDate;
                 _digitalbookContext.Payments.Add(paymentDetails);
                 _digitalbookContext.SaveChanges();

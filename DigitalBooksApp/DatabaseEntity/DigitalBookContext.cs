@@ -94,13 +94,25 @@ namespace DigitalBooksApp.DatabaseEntity
             {
                 entity.ToTable("Payment");
 
-                entity.Property(e => e.PaymentId).ValueGeneratedNever();
+                entity.Property(e => e.BookId).HasColumnName("bookId");
 
-                entity.Property(e => e.Email)
-                    .HasMaxLength(250)
+                entity.Property(e => e.BuyerEmail)
+                    .HasMaxLength(500)
                     .IsUnicode(false);
 
-                entity.Property(e => e.PaymentDate).HasColumnType("datetime");
+                entity.Property(e => e.BuyerName)
+                    .HasMaxLength(500)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PaymentDate)
+                    .HasColumnType("datetime")
+                    .HasColumnName("paymentDate");
+
+                entity.HasOne(d => d.Book)
+                    .WithMany(p => p.Payments)
+                    .HasForeignKey(d => d.BookId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Payment__bookId__778AC167");
             });
 
             modelBuilder.Entity<User>(entity =>

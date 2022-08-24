@@ -19,17 +19,17 @@ namespace DigitalBooksApp.Service
             try
             {
                 Book bookDetails = new Book();
-                bookDetails.BookTitle = book.BookTitle;
+                bookDetails.Title = book.Title;
+                bookDetails.Logo = null;
                 bookDetails.Category = book.Category;
-                bookDetails.UserId = book.UserId;
                 bookDetails.CreatedDate = DateTime.UtcNow;
                 bookDetails.ModifiedDate = DateTime.UtcNow;
-                bookDetails.Price = book.price;
+                bookDetails.Price = book.Price;
+                bookDetails.AuthorName = book.AuthorName;
                 bookDetails.Publisher = book.Publisher;
                 bookDetails.PublishedDate = book.PublishedDate;
                 bookDetails.Content = book.Content;
                 bookDetails.Active = book.Active;
-                bookDetails.Logo = book.Logo;
                 _digitalbookContext.Books.Add(bookDetails);
                 _digitalbookContext.SaveChanges();
             }
@@ -43,7 +43,7 @@ namespace DigitalBooksApp.Service
         public string UpdateBooks(int bookId, Book books)
         {
             var book = _digitalbookContext.Books.Find(bookId);
-            book.BookTitle = books.BookTitle;
+            book.Title = books.Title;
             book.Content = books.Content;
             book.Price = books.Price;
             book.Category = books.Category;

@@ -10,7 +10,5 @@ namespace DigitalBooksApp.DatabaseEntity
         public string BuyerName { get; set; } = null!;
         public int BookId { get; set; }
         public DateTime PaymentDate { get; set; }
-
-        public virtual Book Book { get; set; } = null!;
     }
 }

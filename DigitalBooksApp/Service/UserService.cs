@@ -33,7 +33,7 @@ namespace DigitalBooksApp.Service
             var user = _digitalbookContext.Users.Find(userId);
             user.UserId = users.UserId;
             user.UserName = users.UserName;
-            user.UserType = users.UserType;
+            user.UserRole = users.UserRole;
             user.Password = users.Password;
             _digitalbookContext.SaveChanges();
             return $"User is updated for {user.UserId}";

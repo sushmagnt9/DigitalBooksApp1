@@ -2,11 +2,12 @@
 {
     public class BookDetails
     {
-        public string BookTitle { get; set; } = null;
+        public string Title { get; set; } = null;
         public string Category { get; set; } = null;
 
-        public decimal price { get;set; }
+        public decimal Price { get;set; }
         public int UserId { get; set; }
+        public string AuthorName { get; set; } = null;
         public string Publisher { get; set; } = null;
         public DateTime PublishedDate { get;set; }
         public string Content { get; set; } = null;

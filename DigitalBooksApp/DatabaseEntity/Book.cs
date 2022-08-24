@@ -5,11 +5,6 @@ namespace DigitalBooksApp.DatabaseEntity
 {
     public partial class Book
     {
-        public Book()
-        {
-            Payments = new HashSet<Payment>();
-        }
-
         public int BookId { get; set; }
         public byte[]? Logo { get; set; }
         public string Title { get; set; } = null!;
@@ -22,8 +17,5 @@ namespace DigitalBooksApp.DatabaseEntity
         public bool Active { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
-
-        public virtual User AuthorNameNavigation { get; set; } = null!;
-        public virtual ICollection<Payment> Payments { get; set; }
     }
 }

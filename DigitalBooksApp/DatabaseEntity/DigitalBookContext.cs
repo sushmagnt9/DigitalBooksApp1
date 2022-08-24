@@ -35,7 +35,7 @@ namespace DigitalBooksApp.DatabaseEntity
             {
                 entity.ToTable("Book");
 
-                entity.HasIndex(e => e.Title, "UQ__Book__2CB664DC4802BA40")
+                entity.HasIndex(e => e.Title, "UQ__Book__2CB664DCA8F4EF38")
                     .IsUnique();
 
                 entity.Property(e => e.AuthorName)
@@ -63,13 +63,6 @@ namespace DigitalBooksApp.DatabaseEntity
                 entity.Property(e => e.Title)
                     .HasMaxLength(500)
                     .IsUnicode(false);
-
-                entity.HasOne(d => d.AuthorNameNavigation)
-                    .WithMany(p => p.Books)
-                    .HasPrincipalKey(p => p.UserName)
-                    .HasForeignKey(d => d.AuthorName)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Book__AuthorName__07C12930");
             });
 
             modelBuilder.Entity<Payment>(entity =>
@@ -85,22 +78,16 @@ namespace DigitalBooksApp.DatabaseEntity
                     .IsUnicode(false);
 
                 entity.Property(e => e.PaymentDate).HasColumnType("datetime");
-
-                entity.HasOne(d => d.Book)
-                    .WithMany(p => p.Payments)
-                    .HasForeignKey(d => d.BookId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Payment__BookId__0A9D95DB");
             });
 
             modelBuilder.Entity<User>(entity =>
             {
                 entity.ToTable("User");
 
-                entity.HasIndex(e => e.Email, "UQ__User__A9D10534908DE34E")
+                entity.HasIndex(e => e.Email, "UQ__User__A9D1053413E88B2B")
                     .IsUnique();
 
-                entity.HasIndex(e => e.UserName, "UQ__User__C9F284567F849807")
+                entity.HasIndex(e => e.UserName, "UQ__User__C9F28456AE37C803")
                     .IsUnique();
 
                 entity.Property(e => e.Email)

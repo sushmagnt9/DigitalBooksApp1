@@ -1,5 +1,4 @@
 ﻿using DigitalBooksApp.DatabaseEntity;
-using DigitalBooksApp.NewFolder;
 
 namespace DigitalBooksApp.Service
 {
@@ -14,7 +13,7 @@ namespace DigitalBooksApp.Service
         {
             return _digitalbookContext.Payments.ToList();
         }
-        public string CreatePayment(PaymentDetails payment)
+        public string CreatePayment(Payment payment)
         {
             try
             {

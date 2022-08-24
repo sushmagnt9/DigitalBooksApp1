@@ -1,5 +1,4 @@
 ﻿using DigitalBooksApp.DatabaseEntity;
-using DigitalBooksApp.NewFolder;
 
 namespace DigitalBooksApp.Service
 {
@@ -14,7 +13,7 @@ namespace DigitalBooksApp.Service
         {
             return _digitalbookContext.Books.ToList();
         }
-        public string CreateBook(BookDetails book)
+        public string CreateBook(Book book)
         {
             try
             {

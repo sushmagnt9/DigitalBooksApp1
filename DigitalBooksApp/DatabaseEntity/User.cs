@@ -12,9 +12,9 @@ namespace DigitalBooksApp.DatabaseEntity
 
         public int UserId { get; set; }
         public string UserName { get; set; } = null!;
+        public string Email { get; set; } = null!;
         public string Password { get; set; } = null!;
-        public string UserType { get; set; } = null!;
-        public string? UserEmail { get; set; }
+        public string UserRole { get; set; } = null!;
 
         public virtual ICollection<Book> Books { get; set; }
     }

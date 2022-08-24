@@ -35,104 +35,89 @@ namespace DigitalBooksApp.DatabaseEntity
             {
                 entity.ToTable("Book");
 
-                entity.Property(e => e.BookId).HasColumnName("bookId");
+                entity.HasIndex(e => e.Title, "UQ__Book__2CB664DC4802BA40")
+                    .IsUnique();
 
-                entity.Property(e => e.Active)
-                    .HasColumnName("active")
-                    .HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.BookTitle)
-                    .HasMaxLength(500)
-                    .IsUnicode(false)
-                    .HasColumnName("bookTitle");
+                entity.Property(e => e.AuthorName)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Category)
-                    .HasMaxLength(500)
-                    .IsUnicode(false)
-                    .HasColumnName("category");
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Content)
-                    .HasColumnType("ntext")
-                    .HasColumnName("content");
+                entity.Property(e => e.Content).HasColumnType("ntext");
 
-                entity.Property(e => e.CreatedDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("createdDate");
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
-                entity.Property(e => e.Logo)
-                    .HasMaxLength(500)
-                    .IsUnicode(false)
-                    .HasColumnName("logo");
+                entity.Property(e => e.ModifiedDate).HasColumnType("datetime");
 
-                entity.Property(e => e.ModifiedDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("modifiedDate");
+                entity.Property(e => e.Price).HasColumnType("decimal(10, 2)");
 
-                entity.Property(e => e.Price)
-                    .HasColumnType("decimal(18, 0)")
-                    .HasColumnName("price");
-
-                entity.Property(e => e.PublishedDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("publishedDate");
+                entity.Property(e => e.PublishedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.Publisher)
                     .HasMaxLength(100)
-                    .IsUnicode(false)
-                    .HasColumnName("publisher");
+                    .IsUnicode(false);
 
-                entity.Property(e => e.UserId).HasColumnName("userId");
+                entity.Property(e => e.Title)
+                    .HasMaxLength(500)
+                    .IsUnicode(false);
 
-                entity.HasOne(d => d.User)
+                entity.HasOne(d => d.AuthorNameNavigation)
                     .WithMany(p => p.Books)
-                    .HasForeignKey(d => d.UserId)
+                    .HasPrincipalKey(p => p.UserName)
+                    .HasForeignKey(d => d.AuthorName)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Book__userId__66603565");
+                    .HasConstraintName("FK__Book__AuthorName__07C12930");
             });
 
             modelBuilder.Entity<Payment>(entity =>
             {
                 entity.ToTable("Payment");
 
-                entity.Property(e => e.BookId).HasColumnName("bookId");
-
                 entity.Property(e => e.BuyerEmail)
-                    .HasMaxLength(500)
+                    .HasMaxLength(100)
                     .IsUnicode(false);
 
                 entity.Property(e => e.BuyerName)
-                    .HasMaxLength(500)
+                    .HasMaxLength(100)
                     .IsUnicode(false);
 
-                entity.Property(e => e.PaymentDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("paymentDate");
+                entity.Property(e => e.PaymentDate).HasColumnType("datetime");
 
                 entity.HasOne(d => d.Book)
                     .WithMany(p => p.Payments)
                     .HasForeignKey(d => d.BookId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Payment__bookId__7A672E12");
+                    .HasConstraintName("FK__Payment__BookId__0A9D95DB");
             });
 
             modelBuilder.Entity<User>(entity =>
             {
                 entity.ToTable("User");
 
-                entity.Property(e => e.Password)
+                entity.HasIndex(e => e.Email, "UQ__User__A9D10534908DE34E")
+                    .IsUnique();
+
+                entity.HasIndex(e => e.UserName, "UQ__User__C9F284567F849807")
+                    .IsUnique();
+
+                entity.Property(e => e.Email)
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
-                entity.Property(e => e.UserEmail)
-                    .HasMaxLength(500)
-                    .IsUnicode(false);
+                entity.Property(e => e.Password)
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("password");
 
                 entity.Property(e => e.UserName)
-                    .HasMaxLength(500)
+                    .HasMaxLength(100)
                     .IsUnicode(false);
 
-                entity.Property(e => e.UserType)
-                    .HasMaxLength(30)
+                entity.Property(e => e.UserRole)
+                    .HasMaxLength(50)
                     .IsUnicode(false);
             });
 

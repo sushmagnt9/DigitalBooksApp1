@@ -1,4 +1,5 @@
 ﻿using DigitalBooksApp.DatabaseEntity;
+using DigitalBooksApp.NewFolder;
 
 namespace DigitalBooksApp.Service
 {
@@ -13,7 +14,7 @@ namespace DigitalBooksApp.Service
         {
             return _digitalbookContext.Payments.ToList();
         }
-        public string CreatePayment(Payment payment)
+        public string CreatePayment(PaymentDetails payment)
         {
             try
             {
@@ -27,9 +28,9 @@ namespace DigitalBooksApp.Service
             }
             catch (Exception ex)
             {
-                return $"Book Operation failed {ex.Message}";
+                return $"Payment Operation failed {ex.Message}";
             }
-            return "Book Details saved sucessfully";
+            return "payment Details saved sucessfully";
 
         }
     }

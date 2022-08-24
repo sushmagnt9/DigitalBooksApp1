@@ -112,7 +112,7 @@ namespace DigitalBooksApp.DatabaseEntity
                     .WithMany(p => p.Payments)
                     .HasForeignKey(d => d.BookId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Payment__bookId__778AC167");
+                    .HasConstraintName("FK__Payment__bookId__7A672E12");
             });
 
             modelBuilder.Entity<User>(entity =>

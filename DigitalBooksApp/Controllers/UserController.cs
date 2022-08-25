@@ -36,7 +36,7 @@ namespace DigitalBooksApp.Controllers
         public ActionResult<string> CreateUser([FromBody]User user)
         {
             string result = _iUserService.CreateUser(user);
-            return Ok(result);
+            return Ok(new {_result=result});
         }
         [HttpPut("{userId}")]
         public ActionResult UpdateUsers(int userId, [FromBody] User user)

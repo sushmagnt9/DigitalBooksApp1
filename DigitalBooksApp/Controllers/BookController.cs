@@ -24,6 +24,18 @@ namespace DigitalBooksApp.Controllers
             string result = _ibookService.CreateBook(book);
             return Ok(result);
         }
+        [HttpPost("SearchBooks")]
+        public List<Book> SearchBooks([FromBody] Book book)
+        {
+            try
+            { 
+                return _ibookService.SearchBooks(book);
+            }
+            catch(Exception ex)
+            {
+                return new List<Book>();
+            }
+        }
         [HttpPut("{bookId}")]
         public ActionResult UpdateBooks(int bookId, [FromBody] Book book)
         {

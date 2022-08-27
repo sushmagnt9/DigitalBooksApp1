@@ -41,7 +41,7 @@ namespace DigitalBooksApp.Service
         }
         public List<Book> SearchBooks(Book book)
         {
-            return _digitalbookContext.Books.Where(x => (x.Title == book.Title && x.Price == book.Price || x.Category == book.Category || x.Publisher == book.Publisher)).ToList();
+            return _digitalbookContext.Books.Where(x => (x.Title == book.Title && x.AuthorName == book.AuthorName || x.Category == book.Category || x.Publisher == book.Publisher)).ToList();
         }
         public string UpdateBooks(int bookId, Book books)
         {

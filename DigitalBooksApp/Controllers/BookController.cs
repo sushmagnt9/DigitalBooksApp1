@@ -22,7 +22,7 @@ namespace DigitalBooksApp.Controllers
         public ActionResult<string> CreateBook([FromBody] Book book)
         {
             string result = _ibookService.CreateBook(book);
-            return Ok(result);
+            return Ok(new { _result = result });
         }
         [HttpPost("SearchBooks")]
         public List<Book> SearchBooks([FromBody] Book book)

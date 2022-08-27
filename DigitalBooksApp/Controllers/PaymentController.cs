@@ -22,7 +22,7 @@ namespace DigitalBooksApp.Controllers
             public ActionResult<string> CreatePayment([FromBody] Payment payment)
             {
                 string result = _ipaymentService.CreatePayment(payment);
-                return Ok(result);
-            }
+                return Ok(new { _result = result });
+        }
         }
 }

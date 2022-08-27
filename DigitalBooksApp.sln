@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateWayOcelot", "ApiGate
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TokenAuthentication", "TokenAuthentication\TokenAuthentication.csproj", "{F073A452-AC6E-448B-BEC5-D5ADB7BA38B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMq", "WebApplication1\RabbitMq.csproj", "{9F87BCC3-4FA9-45A3-990F-26163985833B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F073A452-AC6E-448B-BEC5-D5ADB7BA38B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F073A452-AC6E-448B-BEC5-D5ADB7BA38B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F073A452-AC6E-448B-BEC5-D5ADB7BA38B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F87BCC3-4FA9-45A3-990F-26163985833B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F87BCC3-4FA9-45A3-990F-26163985833B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F87BCC3-4FA9-45A3-990F-26163985833B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F87BCC3-4FA9-45A3-990F-26163985833B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

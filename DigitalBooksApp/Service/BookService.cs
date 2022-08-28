@@ -43,11 +43,17 @@ namespace DigitalBooksApp.Service
         {
             return _digitalbookContext.Books.Where(x => (x.Title == book.Title && x.AuthorName == book.AuthorName || x.Category == book.Category || x.Publisher == book.Publisher)).ToList();
         }
-        public string UpdateBooks(int bookId, Book books)
+        public string UpdateBooks(Book books)
         {
-            var book = _digitalbookContext.Books.Find(bookId);
+            var book = _digitalbookContext.Books.Find(books.BookId);
+            book.Logo = books.Logo;
             book.Title = books.Title;
             book.Content = books.Content;
+            book.Publisher = books.Publisher;
+            book.PublishedDate = books.PublishedDate;
+            book.AuthorName = books.AuthorName;
+            book.Content = books.Content;
+            book.Active = books.Active;
             book.Price = books.Price;
             book.Category = books.Category;
             _digitalbookContext.SaveChanges();

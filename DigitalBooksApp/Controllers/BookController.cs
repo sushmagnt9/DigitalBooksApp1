@@ -36,13 +36,12 @@ namespace DigitalBooksApp.Controllers
                 return new List<Book>();
             }
         }
-        [HttpPut("{bookId}")]
-        public ActionResult UpdateBooks(int bookId, [FromBody] Book book)
+        [HttpPut]
+        public ActionResult UpdateBooks([FromBody] Book book)
         {
-            if (bookId == book.BookId)
-            {
-                string result = _ibookService.UpdateBooks(bookId, book);
-            }
+            
+                string result = _ibookService.UpdateBooks( book);
+            
             return Ok();
         }
         [HttpDelete("{bookId}")]

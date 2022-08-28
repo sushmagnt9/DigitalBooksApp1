@@ -8,6 +8,6 @@ namespace DigitalBooksApp.Service
         string DeleteBooks(int bookId);
         List<Book> GetAllBooks();
         List<Book> SearchBooks(Book book);
-        string UpdateBooks(int bookId, Book books);
+        string UpdateBooks(Book books);
     }
 }

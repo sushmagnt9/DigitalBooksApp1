@@ -28,10 +28,10 @@ namespace DigitalBooksApp.Controllers
         public List<Book> SearchBooks([FromBody] Book book)
         {
             try
-            { 
+            {
                 return _ibookService.SearchBooks(book);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return new List<Book>();
             }
@@ -45,7 +45,7 @@ namespace DigitalBooksApp.Controllers
             }
             return Ok();
         }
-        [HttpDelete]
+        [HttpDelete("{bookId}")]
         public ActionResult DeleteBooks(int bookId)
         {
             string result = _ibookService.DeleteBooks(bookId);

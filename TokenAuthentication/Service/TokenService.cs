@@ -18,7 +18,7 @@ namespace TokenAuthentication.Service
         }
         public bool ValidateUser(UserValidationRequestModel usercreds)
         {
-            var authorObj = _digitalBookContext.Users.Where(u => u.UserName == usercreds.UserName && u.Password == usercreds.Password).Count();
+            var authorObj = _digitalBookContext.Users.Where(u => u.UserName == usercreds.UserName && u.Password == usercreds.Password && u.UserRole == usercreds.UserRole).Count();
             if (authorObj >0 )
             {
                 return true;
